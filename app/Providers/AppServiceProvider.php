@@ -3,9 +3,8 @@
 namespace App\Providers;
 
 use App\Channel;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-	        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
 
         \View::composer('*', function ($view) {
             $channels = \Cache::rememberForever('channels', function () {
